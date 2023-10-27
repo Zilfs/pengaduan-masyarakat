@@ -16,8 +16,13 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                @if (session()->has('login-message'))
+                                @if (session()->has('auth-message'))
                                     <div class="alert alert-danger">
+                                        {{ session()->get('auth-message') }}
+                                    </div>
+                                @endif
+                                @if (session()->has('login-message'))
+                                    <div class="alert alert-warning">
                                         {{ session()->get('login-message') }}
                                     </div>
                                 @endif

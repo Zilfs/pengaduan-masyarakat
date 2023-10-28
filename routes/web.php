@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasyarakatController;
+use App\Http\Controllers\PengaduanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,6 @@ Route::get('/logout', [AuthController::class,'logout'])->name('logout');
 //Masyarakat Area
 Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], function(){
     Route::get('/index', [MasyarakatController::class, 'index'])->name('masyarakat-index');
+    Route::get('/buat-aduan', [PengaduanController::class, 'create'])->name('buat-aduan');
+    Route::post('/kirim-aduan', [PengaduanController::class, 'store'])->name('kirim-aduan');
 });

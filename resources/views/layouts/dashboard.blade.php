@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-
+    @stack('addon-script')
     <!-- Bootstrap core JavaScript-->
     <script src="/sb-admin/vendor/jquery/jquery.min.js"></script>
     <script src="/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

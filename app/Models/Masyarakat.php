@@ -28,4 +28,9 @@ class Masyarakat extends Model implements \Illuminate\Contracts\Auth\Authenticat
     protected $hidden = [
 
     ];
+
+    public function pengaduan()
+    {
+        return $this->hasMany(Pengaduan::class, 'nik', 'nik');
+    }
 }

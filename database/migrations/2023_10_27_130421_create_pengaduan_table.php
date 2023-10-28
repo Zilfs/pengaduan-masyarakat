@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
             $table->string('nik');
+            $table->string('judul');
             $table->longText('isi_laporan');
             $table->string('foto');
             $table->date('tanggal_pengaduan');
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_pengaduan');
+        Schema::dropIfExists('pengaduan');
     }
 };

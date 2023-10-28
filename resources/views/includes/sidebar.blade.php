@@ -39,7 +39,7 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('aduan-saya') }}">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Aduan Saya</span>
             </a>

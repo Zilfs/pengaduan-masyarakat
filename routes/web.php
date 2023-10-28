@@ -27,4 +27,5 @@ Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], funct
     Route::get('/index', [MasyarakatController::class, 'index'])->name('masyarakat-index');
     Route::get('/buat-aduan', [PengaduanController::class, 'create'])->name('buat-aduan');
     Route::post('/kirim-aduan', [PengaduanController::class, 'store'])->name('kirim-aduan');
+    Route::get('/aduan-saya', [PengaduanController::class, 'index'])->name('aduan-saya');
 });

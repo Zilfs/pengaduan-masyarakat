@@ -38,6 +38,8 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
             return redirect()->route('masyarakat-index');
+            // return dd($credentials)->get();
+            // return dd(Auth::guard('masyarakat')->user())->get();
         }
         return redirect()->route('login')->with('auth-message', 'Login Gagal, NIK Atau Password Salah');
     }

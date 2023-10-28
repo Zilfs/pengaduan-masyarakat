@@ -22,6 +22,6 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 Route::get('/logout', [AuthController::class,'logout'])->name('logout');
 
 //Masyarakat Area
-Route::group(['middleware' => ['IsMasyarakat'], 'prefix' => 'masyarakat'], function(){
+Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], function(){
     Route::get('/index', [MasyarakatController::class, 'index'])->name('masyarakat-index');
 });

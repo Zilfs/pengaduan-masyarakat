@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('masyarakat', function (Blueprint $table) {
+            $table->id();
             $table->string('nik')->unique();
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('password');
             $table->string('nama');
             $table->string('no_telp');

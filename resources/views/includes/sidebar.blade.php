@@ -81,6 +81,15 @@
             Interface
         </div>
 
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('data-petugas') }}">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Data Petugas</span>
+            </a>
+
+        </li>
+
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('semua-aduan') }}">
@@ -90,14 +99,6 @@
 
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('aduan-saya') }}">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Aduan Saya</span>
-            </a>
-
-        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

@@ -24,7 +24,7 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.petugas.add');
     }
 
     /**
@@ -32,7 +32,9 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Petugas::create($request->all());
+
+        return redirect()->route('data-petugas');
     }
 
     /**

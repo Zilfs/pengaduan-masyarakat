@@ -52,7 +52,11 @@ class PengaduanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Pengaduan::findOrFail($id);;
+        return view('pages.masyarakat.aduan.detail',[
+
+            'data'=> $data,
+        ]);
     }
 
     /**

@@ -30,4 +30,5 @@ Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], funct
     Route::post('/kirim-aduan', [PengaduanController::class, 'store'])->name('kirim-aduan');
     Route::get('/aduan-saya', [MasyarakatController::class, 'show'])->name('aduan-saya');
     Route::get('/semua-aduan', [PengaduanController::class, 'index'])->name('semua-aduan');
+    Route::get('/detail-aduan/{id}', [PengaduanController::class, 'show'])->name('detail-aduan');
 });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
@@ -22,6 +23,8 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/sign-up', [AuthController::class, 'add'])->name('sign-up');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class,'logout'])->name('logout');
+Route::get('/petugas', [AuthController::class,'login_petugas'])->name('petugas');
+Route::post('/authenticate-petugas', [AuthController::class,'authenticate_petugas'])->name('authenticate-petugas');
 
 //Masyarakat Area
 Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], function(){
@@ -31,4 +34,9 @@ Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], funct
     Route::get('/aduan-saya', [MasyarakatController::class, 'show'])->name('aduan-saya');
     Route::get('/semua-aduan', [PengaduanController::class, 'index'])->name('semua-aduan');
     Route::get('/detail-aduan/{id}', [PengaduanController::class, 'show'])->name('detail-aduan');
+});
+
+//Admin Area
+Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function(){
+    Route::get('/index', [AdminController::class, 'index'])->name('admin-index');
 });

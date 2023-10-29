@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'masyarakat',
         ],
+        
+        'petugas' => [
+            'driver' => 'session',
+            'provider' => 'petugas',
+        ],
     ],
 
     /*
@@ -73,6 +78,11 @@ return [
         'masyarakat' => [
             'driver' => 'eloquent',
             'model' => App\Models\Masyarakat::class,
+        ],
+        
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Petugas::class,
         ],
 
         // 'users' => [

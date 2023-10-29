@@ -4,10 +4,15 @@
     <!-- Page Heading -->
     <div class="d-sm-flex flex-column mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $data->judul }}</h1>
-        <div class="text-xs mt-2 ">
+        <div class="text mt-2 ">
             Dilaporkan Oleh : {{ $data->masyarakat->nama }}</div>
-        <div class="text-xs mt-2 ">
+        <div class="text mt-2 ">
             {{ $data->tanggal_pengaduan }}</div>
+        @if (session()->has('success'))
+            <div class="alert alert-success MT-4">
+                {{ session()->get('success') }}
+            </div>
+        @endif
     </div>
 
     <div class="d-flex flex-column card py-5 px-4">
@@ -26,7 +31,7 @@
             <div class="card w-100 d-flex flex-column mb-5 py-3 px-4">
                 <div class="h5 font-weight-bold" style="color: black">{{ $item->petugas->nama_petugas }}</div>
                 <p class="mb-4">{{ $item->tgl_tanggapan }}</p>
-                <div class="w-100">
+                <div class="w-100" style="color: black">
                     {!! $item->tanggapan !!}
                 </div>
             </div>

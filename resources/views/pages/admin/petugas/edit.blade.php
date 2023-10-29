@@ -7,36 +7,35 @@
     </div>
 
     <div class="d-flex card py-5 px-4">
-        <form action="{{ route('simpan-petugas') }}" method="POST">
+        <form action="{{ route('update-petugas', $data->id) }}" method="POST">
             @csrf
             <div class="row">
                 <div class="form-group mb-3 col-12">
                     <label for="nama_petugas" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" required>
+                    <input type="text" class="form-control" id="nama_petugas" name="nama_petugas"
+                        value="{{ $data->nama_petugas }}" required>
                 </div>
-                <div class="form-group mb-3 col-6">
+                <div class="form-group mb-3 col-12">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group mb-3 col-6">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="password" name="password" required>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ $data->username }}"
+                        required>
                 </div>
                 <div class="form-group mb-3 col-6">
                     <label for="telp" class="form-label">No Telp</label>
-                    <input type="text" class="form-control" id="telp" name="telp" required>
+                    <input type="text" class="form-control" id="telp" name="telp" value="{{ $data->telp }}"
+                        required>
                 </div>
                 <div class="form-group mb-3 col-6">
                     <label for="level" class="form-label">Level</label>
                     <select id="level" name="level" class="form-select form-control" required>
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="PETUGAS">PETUGAS</option>
+                        <option value="ADMIN" {{ $data->level == 'ADMIN' ? 'selected' : '' }}>ADMIN</option>
+                        <option value="PETUGAS" {{ $data->level == 'PETUGAS' ? 'selected' : '' }}>PETUGAS</option>
                     </select>
                 </div>
             </div>
 
 
-            <button type="submit" class="btn btn-primary w-100 mt-3">Tambah</button>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Ubah</button>
         </form>
         <a href="{{ route('data-petugas') }}" class="btn btn-warning w-100 mt-3">Kembali</a>
     </div>

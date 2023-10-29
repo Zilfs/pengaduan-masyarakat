@@ -50,7 +50,11 @@ class PetugasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Petugas::findOrFail($id);
+
+        return view('pages.admin.petugas.edit', [
+            'data'=> $data,
+        ]);
     }
 
     /**
@@ -58,7 +62,10 @@ class PetugasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Petugas::findOrFail($id);
+        $item->update($request->all());
+
+        return redirect()->route('data-petugas');
     }
 
     /**

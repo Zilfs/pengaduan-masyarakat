@@ -35,7 +35,8 @@
                             <td class="w-25">
                                 <div class="d-flex">
                                     <div class="w-50 mx-2 ">
-                                        <a href="" class="btn btn-sm btn-warning  w-100"><i
+                                        <a href="{{ route('edit-petugas', $item->id) }}"
+                                            class="btn btn-sm btn-warning  w-100"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
                                     </div>
                                     <div class="w-50 mx-2">

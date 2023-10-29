@@ -14,10 +14,10 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $data = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->get();
+        $data = Pengaduan::all();
 
-        return view('pages.masyarakat.aduan.mine', [
-            'data' => $data,
+        return view('pages.masyarakat.aduan.index', [
+            'data'=> $data
         ]);
     }
 

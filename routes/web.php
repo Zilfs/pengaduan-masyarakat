@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
+use App\Models\Pengaduan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,6 @@ Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], funct
     Route::get('/index', [MasyarakatController::class, 'index'])->name('masyarakat-index');
     Route::get('/buat-aduan', [PengaduanController::class, 'create'])->name('buat-aduan');
     Route::post('/kirim-aduan', [PengaduanController::class, 'store'])->name('kirim-aduan');
-    Route::get('/aduan-saya', [PengaduanController::class, 'index'])->name('aduan-saya');
+    Route::get('/aduan-saya', [MasyarakatController::class, 'show'])->name('aduan-saya');
+    Route::get('/semua-aduan', [PengaduanController::class, 'index'])->name('semua-aduan');
 });

@@ -32,7 +32,9 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
-        Petugas::create($request->all());
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
+        Petugas::create($data);
 
         return redirect()->route('data-petugas');
     }
@@ -73,6 +75,9 @@ class PetugasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Petugas::findOrFail($id);
+
+        $item->delete();
+        return redirect()->route('data-petugas');
     }
 }

@@ -45,4 +45,5 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function(){
     Route::post('/simpan-petugas', [PetugasController::class, 'store'])->name('simpan-petugas');
     Route::get('/edit-petugas/{id}', [PetugasController::class, 'edit'])->name('edit-petugas');
     Route::post('/update-petugas/{id}', [PetugasController::class, 'update'])->name('update-petugas');
+    Route::delete('/hapus-petugas/{id}', [PetugasController::class, 'destroy'])->name('hapus-petugas');
 });

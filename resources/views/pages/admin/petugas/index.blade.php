@@ -55,17 +55,18 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="hapusModalLabel">Konfirmasi Hapus Siswa</h5>
+                                        <h5 class="modal-title" id="hapusModalLabel">Konfirmasi Hapus Petugas</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus siswa ini?
+                                        Apakah Anda yakin ingin menghapus data ini?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <form id="delete-form" method="POST" action="">
+                                        <form id="delete-form" method="POST"
+                                            action="{{ route('hapus-petugas', $item->id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>

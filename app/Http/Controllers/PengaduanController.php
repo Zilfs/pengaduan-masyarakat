@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -52,10 +53,13 @@ class PengaduanController extends Controller
      */
     public function show(string $id)
     {
-        $data = Pengaduan::findOrFail($id);;
+        $data = Pengaduan::findOrFail($id);
+        $tanggapan = Tanggapan::where('id_pengaduan', $id)->get();
+        
         return view('pages.masyarakat.aduan.detail',[
 
             'data'=> $data,
+            'tanggapan' => $tanggapan,
         ]);
     }
 

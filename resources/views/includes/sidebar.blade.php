@@ -54,7 +54,7 @@
         </div>
     @endif
 
-    @if (Auth::guard('petugas')->user()->level == 'ADMIN')
+    @if (Auth::guard('petugas')->user() && Auth::guard('petugas')->user()->level == 'ADMIN')
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin-index') }}">
             <div class="sidebar-brand-icon rotate-n-15">
@@ -92,7 +92,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('semua-aduan') }}">
+            <a class="nav-link" href="{{ route('aduan-masyarakat') }}">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Lihat Semua Pengaduan</span>
             </a>

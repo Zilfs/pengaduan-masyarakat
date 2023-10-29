@@ -17,7 +17,7 @@
         <div class="mt-5 w-100">
             {!! $data->isi_laporan !!}
         </div>
-        <a href="{{ route('semua-aduan') }}" class="btn btn-warning w-100 mt-3">Kembali</a>
+        <a href="{{ route('aduan-masyarakat') }}" class="btn btn-warning w-100 mt-3">Kembali</a>
     </div>
 
     <div class="d-flex flex-column my-5">
@@ -32,4 +32,31 @@
             </div>
         @endforeach
     </div>
+
+    <div class="d-flex flex-column card py-5 px-4">
+        <div class="h4 font-weight-bold">Beri Tanggapan</div>
+        <form action="{{ route('kirim-tanggapan', $data->id) }}" method="POST">
+            @csrf
+            <div class="form-group mb-5">
+                <textarea id="tanggapan" class="form-control" name="tanggapan"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Kirim Tanggapan</button>
+        </form>
+    </div>
 @endsection
+
+@push('addon-script')
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#tanggapan'), {
+                // toolbar: ['heading', '|', 'bold', 'italic', 'link']
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(err => {
+                console.error(err.stack);
+            });
+    </script>
+@endpush

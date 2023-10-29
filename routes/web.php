@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\TanggapanController;
 use App\Models\Pengaduan;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,7 @@ Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function(){
     Route::get('/edit-petugas/{id}', [PetugasController::class, 'edit'])->name('edit-petugas');
     Route::post('/update-petugas/{id}', [PetugasController::class, 'update'])->name('update-petugas');
     Route::delete('/hapus-petugas/{id}', [PetugasController::class, 'destroy'])->name('hapus-petugas');
+    Route::get('/aduan-masyarakat', [TanggapanController::class, 'index'])->name('aduan-masyarakat');
+    Route::get('detail/aduan-masyarakat/{id}', [TanggapanController::class, 'show'])->name('detail-aduan-masyarakat');
+    Route::post('/kirim-tanggapan/{id}', [TanggapanController::class,'store'])->name('kirim-tanggapan');
 });

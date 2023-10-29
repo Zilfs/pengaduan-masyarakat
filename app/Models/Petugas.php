@@ -28,5 +28,10 @@ class Petugas extends Model implements \Illuminate\Contracts\Auth\Authenticatabl
     protected $hidden = [
 
     ];
+
+    public function tanggapan()
+    {
+        return $this->hasMany(Tanggapan::class, 'id_petugas', 'id');
+    }
         
 }

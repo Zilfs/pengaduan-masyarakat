@@ -40,13 +40,17 @@ Route::group(['middleware' => ['isMasyarakat'], 'prefix' => 'masyarakat'], funct
 
 //Admin Area
 Route::group(['middleware' => ['isAdmin'], 'prefix' => 'admin'], function(){
-    Route::get('/index', [AdminController::class, 'index'])->name('admin-index');
     Route::get('/data-petugas', [PetugasController::class, 'index'])->name('data-petugas');
     Route::get('/tambah-petugas', [PetugasController::class, 'create'])->name('tambah-petugas');
     Route::post('/simpan-petugas', [PetugasController::class, 'store'])->name('simpan-petugas');
     Route::get('/edit-petugas/{id}', [PetugasController::class, 'edit'])->name('edit-petugas');
     Route::post('/update-petugas/{id}', [PetugasController::class, 'update'])->name('update-petugas');
     Route::delete('/hapus-petugas/{id}', [PetugasController::class, 'destroy'])->name('hapus-petugas');
+    
+});
+
+Route::group(['middleware' => ['isPetugas'], 'prefix' => 'petugas'], function(){
+    Route::get('/index', [AdminController::class, 'index'])->name('admin-index');
     Route::get('/aduan-masyarakat', [TanggapanController::class, 'index'])->name('aduan-masyarakat');
     Route::get('detail/aduan-masyarakat/{id}', [TanggapanController::class, 'show'])->name('detail-aduan-masyarakat');
     Route::post('/kirim-tanggapan/{id}', [TanggapanController::class,'store'])->name('kirim-tanggapan');

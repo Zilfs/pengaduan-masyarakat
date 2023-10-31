@@ -61,6 +61,10 @@ class AuthController extends Controller
             {
                 return redirect()->route('admin-index');
             }
+            if(Auth::guard('petugas')->user()->level == 'PETUGAS')
+            {
+                return redirect()->route('admin-index');
+            }
         }
         return redirect()->route('petugas')->with('auth-message', 'Login Gagal, Username Atau Password Salah');
     }
